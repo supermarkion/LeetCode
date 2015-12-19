@@ -25,30 +25,32 @@ public class Solution {
 	    }
         
     }
-    private int findKth( int[] A, int indexA, int[] B, int indexB, int k) {
+    private int findKth(int[] A, int indexA, int[] B, int indexB, int k) {
 	    int lenA = (A == null) ? 0 : A.length ;
 	    if (indexA > lenA - 1) {
-	    	return B [indexB + k - 1];
+	    	return B[indexB + k - 1];
 	    }
 	    int lenB = (B == null) ? 0 : B.length ;
 	    if (indexB > lenB - 1) {
 	    	return A[indexA + k - 1];
 	    }
+
 	    // avoid infilite loop if k == 1
 	    if ( k == 1) {
-	    	return Math.min (A[indexA] , B[indexB]) ;
+	    	return Math.min(A[indexA], B[indexB]) ;
 	    }
-	    int keyA = Integer.MAX_VALUE , keyB = Integer.MAX_VALUE ;
+	    int keyA = Integer.MAX_VALUE, keyB = Integer.MAX_VALUE;
+	    // then, perform binary search to find kth element
 	    if (indexA + k / 2 - 1 < lenA) {
-	    	keyA = A [indexA + k / 2 - 1];
+	    	keyA = A[indexA + k / 2 - 1];
 	    }
 	    if (indexB + k / 2 - 1 < lenB) {
-	    	keyB = B [indexB + k / 2 - 1];
+	    	keyB = B[indexB + k / 2 - 1];
 	    }
 	    if (keyA > keyB) {
-	    	return findKth (A, indexA, B, indexB + k / 2, k - k / 2) ;
+	    	return findKth(A, indexA, B, indexB + k / 2, k - k / 2);
 	    } else {
-	    	return findKth (A, indexA + k / 2, B, indexB, k - k / 2) ;
+	    	return findKth(A, indexA + k / 2, B, indexB, k - k / 2);
 	    }
     }
 }
