@@ -12,7 +12,7 @@
 
 public class Solution {
     public double myPow(double x, int n) {
-        if (x == 0) {
+        if (x == 0) { 
             return 0;
         }
         if (n == 0) {
@@ -22,7 +22,7 @@ public class Solution {
         int nSign = n < 0 ? -1 : 1;
         n = Math.abs(n);
     
-        double result = myPow(x, n / 2);
+        double result = myPow(x, n / 2); // use recursion to speed up
         result *= result;
         if (n % 2 != 0) {
             result *= x;
