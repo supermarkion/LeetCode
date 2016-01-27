@@ -10,3 +10,7 @@ private class IntervalCompareator implements Comparator<Interval> {
 	    return a.start - b.start;
     }
 }
+2. The Text Justification.java is a template on construct text file with special format.
+
+
+
