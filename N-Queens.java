@@ -18,7 +18,7 @@
 		  ".Q.."]
 		]
 
-    Solution: The main point is that n is greater than 0 or less.
+    Solution: None
     
     Source: None
 */
