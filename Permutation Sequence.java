@@ -15,3 +15,26 @@
     
     Source: None
 */
+
+public class Solution {
+    public String getPermutation(int n, int k) {
+        if (n <= 0 && k <= 0) {
+            return "";
+        }
+        int fact = 1;
+        List<Integer> nums = new ArrayList<Integer>();
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+            nums.add(i);
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = n; i >= 1; i--) {
+            fact /= i;
+            int rank = (k - 1) / fact;
+            k = (k - 1) % fact + 1;
+            sb.append(nums.get(rank));
+            nums.remove(rank);
+        }
+        return sb.toString();
+    }
+}
