@@ -7,7 +7,7 @@
 
     Solution: None
 
-    Source: None
+    Source: https://leetcode.com/discuss/73579/very-simple-java-solution
 */
 
 /**
@@ -21,20 +21,21 @@
  */
 public class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
-        return sortedArrayToBST(nums, 0, nums.length - 1);
+        return helper(nums, 0, nums.length - 1);
+  }
+
+  private TreeNode helper(int[] nums, int l, int r){
+    if (l > r) {
+        return null;
     }
-    
-    private TreeNode sortedArrayToBST(int[] nums, int low, int high) {
-    
-        if (low >= high) {
-           return null; 
-        }
-        int mid = low + (high - low) / 2;
-        TreeNode node = new TreeNode(nums[mid]);
-        node.left = sortedArrayToBST(nums, low, mid - 1);
-        node.right = sortedArrayToBST(nums, mid + 1, high);
-    
-        return node;
+    if (l == r) {
+        return new TreeNode(nums[l]);
+    }
+    int mid = (l + r) / 2;
+    TreeNode root = new TreeNode(nums[mid]);
+    root.left = helper(nums, l, mid - 1);
+    root.right = helper(nums, mid + 1, r);
+    return root;
     
     }
 }
