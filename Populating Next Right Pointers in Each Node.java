@@ -26,7 +26,7 @@
 
     Solution: None
     
-    Source: None
+    Source: https://leetcode.com/discuss/76512/simple-java-solution
 */
 
 /**
