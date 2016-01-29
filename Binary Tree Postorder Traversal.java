@@ -30,7 +30,7 @@ public class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> lst = new ArrayList<Integer>();
 
-        if(root == null)
+        if (root == null)
             return lst; 
 
         Stack<TreeNode> stack = new Stack<TreeNode>();
@@ -58,7 +58,7 @@ public class Solution {
             //need to check if there is a right child
             //if yes, push it to stack
             //otherwise, process parent and pop stack
-            }else if (curr.left == prev) {
+            } else if (curr.left == prev) {
                 if (curr.right != null) {
                     stack.push(curr.right);
                 } else {
@@ -68,7 +68,7 @@ public class Solution {
 
             //go up the tree from right node 
             //after coming back from right node, process parent node and pop stack. 
-            }else if (curr.right == prev) {
+            } else if (curr.right == prev) {
                 stack.pop();
                 lst.add(curr.val);
             }
