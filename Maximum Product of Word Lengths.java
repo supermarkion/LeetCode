@@ -20,7 +20,7 @@
         Return 0
         No such pair of words.
 
-    Solution: None
+    Solution: Transform from word to bits to solve time. (then we can & to compare two words)
 		    
     Source: https://leetcode.com/discuss/82920/java-easy-version-to-understand
 */
