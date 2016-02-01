@@ -6,7 +6,7 @@
 
     Example: None
 
-    Solution: None
+    Solution: http://bookshadow.com/weblog/2015/09/28/leetcode-find-duplicate-number/
     
     Source: https://leetcode.com/discuss/74367/java-easy-version-to-understand
 */
