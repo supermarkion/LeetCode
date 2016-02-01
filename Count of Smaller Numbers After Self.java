@@ -13,7 +13,7 @@
 
     Solution: None
 		    
-    Source: None
+    Source: https://leetcode.com/discuss/77547/simple-accepted-java-solution
 */
 
 public class Solution {
