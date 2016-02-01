@@ -8,8 +8,18 @@
 		"(a)())()" -> ["(a)()()", "(a())()"]
 		")(" -> [""]
 
-    Solution: None
-    
+    Solution: 
+	    Limit max removal rmL and rmR for backtracking boundary. Otherwise it will exhaust all possible valid substrings, not shortest ones.
+		Scan from left to right, avoiding invalid strs (on the fly) by checking num of open parens.
+		If it's '(', either use it, or remove it.
+		If it's '(', either use it, or remove it.
+		Otherwise just append it.
+		Lastly set StringBuilder to the last decision point.
+	In each step, make sure:
+		i does not exceed s.length().
+		Max removal rmL rmR and num of open parens are non negative.
+		De-duplicate by adding to a HashSet.
+		    
     Source: https://leetcode.com/discuss/72208/easiest-9ms-java-solution
 */
 
