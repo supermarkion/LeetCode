@@ -5,7 +5,7 @@
     Link: https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
 
     Example: 
-    	Example 1:
+        Example 1:
 
         nums = [
           [9,9,4],
@@ -26,7 +26,7 @@
         The longest increasing path is [3, 4, 5, 6]. Moving diagonally is not allowed.
 
     Solution: None
-		    
+            
     Source: https://leetcode.com/discuss/83142/java-easy-version-to-understand
 */
 
