@@ -21,11 +21,9 @@
 
     Solution: None
     
-    Source: https://leetcode.com/discuss/52370/my-simple-solution-using-inner-join
+    Source: https://leetcode.com/discuss/38861/accepted-with-runtime-1081-ms
 */
 
-SELECT t1.Id
-FROM Weather t1
-INNER JOIN Weather t2
-ON TO_DAYS(t1.Date) = TO_DAYS(t2.Date) + 1
-WHERE t1.Temperature > t2.Temperatur
+# Write your MySQL query statement below
+
+SELECT w1.Id FROM Weather w1, Weather w2 WHERE dateDiff(w1.Date,w2.Date) = 1 AND w1.Temperature > w2.Temperature;
