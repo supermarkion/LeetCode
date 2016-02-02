@@ -37,7 +37,7 @@ public class Solution {
     public boolean isValidSerialization(String preorder) {
         java.util.StringTokenizer t = new  java.util.StringTokenizer(preorder, ",");
             int n = 0;
-            while( t.hasMoreTokens()) {
+            while (t.hasMoreTokens()) {
                	String st = t.nextToken();
                	if (st.equals("#")) {
                    	if ( --n == -1 && t.hasMoreTokens()) {
