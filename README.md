@@ -11,6 +11,9 @@ private class IntervalCompareator implements Comparator<Interval> {
     }
 }
 2. The Text Justification.java is a template on construct text file with special format.
+3. From now on, I should use Thinking in Java to practice my OOP defintions.
+
+
 
 
 
