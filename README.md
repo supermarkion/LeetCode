@@ -15,7 +15,7 @@ private class IntervalCompareator implements Comparator<Interval> {
 4. When you say something is static, it means that particular field or method is not tied to any particular object instance of that class.
 5. However, for the static nested classes, you should use final to declare you class, prevents extension of the class since extending a static class makes no sense. After that, make the constructor to private, and use static to declare all methods.
 6. The good of static classes is that it can define one-off, utility and library classes where instatiation would not make sense.
-
+7. The default behavior of equals() is to compare references.
 
 
 
