@@ -10,7 +10,7 @@
    		Input: numbers={2, 7, 11, 15}, target=9
 		Output: index1=1, index2=2
 
-    Solution: Standary map to save sum difference, and access the map to find sum result quickly.
+    Solution: Standard map to save sum difference, and access the map to find sum result quickly.
     
     Source: None
 */
