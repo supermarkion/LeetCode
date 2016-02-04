@@ -16,7 +16,7 @@ private class IntervalCompareator implements Comparator<Interval> {
 5. However, for the static nested classes, you should use final to declare you class, prevents extension of the class since extending a static class makes no sense. After that, make the constructor to private, and use static to declare all methods.
 6. The good of static classes is that it can define one-off, utility and library classes where instatiation would not make sense.
 7. The default behavior of equals() is to compare references.
-8. In the overloading method, once we input a argument, and there is no perfect type to match it, we will promoted its type, and apply the method which meet new type. e.g. if only method on f(long a), and we input a int a, it will run f(long a).
+8. In the overloading method, once we input a argument, and there is no perfect type to match it, we will promoted its type, and apply the method which meet new type. e.g. if only method on f(long a), and we input a int a, it will run f(long a). However, once we input is wider than existing argument type, unless we transform it by hand, or it will raise a error.
 
 
 
