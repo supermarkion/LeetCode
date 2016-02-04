@@ -17,7 +17,7 @@ private class IntervalCompareator implements Comparator<Interval> {
 6. The good of static classes is that it can define one-off, utility and library classes where instatiation would not make sense.
 7. The default behavior of equals() is to compare references.
 8. In the overloading method, once we input a argument, and there is no perfect type to match it, we will promoted its type, and apply the method which meet new type. e.g. if only method on f(long a), and we input a int a, it will run f(long a). However, once we input is wider than existing argument type, unless we transform it by hand, or it will raise a error.
-
+10. For the static key word, there is no this for that particular method, you cannot call a non-static methods from insdier static methods (although the reverse is possible), and you can call a static method for the class itself, without any object. It is kind of Global Method, eventhough Java is not allow global method. (when we use static, there is no need to pass message to object, and it can say there is no this in method)
 
 
 
