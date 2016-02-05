@@ -27,6 +27,15 @@ private class IntervalCompareator implements Comparator<Interval> {
 6) Constructors are executed. It might actually involve a fair amount of activity, expecially when inheritance is involved.
 12. We can also use static keyword and {} to cover block of code, which means these code is executed only once: the first time you make an object of that class or the first time you access a static member of that class.
 13. Igeneral you can use an enum as if it were another way to create a data type, and then just put the results to work. 
+14. The class controls the code that has access to its members. Code from anther package can't just come around. The only way to grant access to a member is to:
+1) Make the member public. Then everybody, everywhere can access it.
+2) Given the member package access by elaving off any access specifier, and put the other classes in the same package. Then the other classes in that package can access the member.
+3) When inheritance is introduced, an inherited class can access a protected member as well as a public member. It can access package-access members only if the two classes are in the same package.
+4) Provide "accessor/mutator" methods (also known as "get/set" methods) that read and change the value. This is the most civilized approach in terms of OOP.
+
+
+
+
 
 
 
