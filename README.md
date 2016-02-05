@@ -26,7 +26,7 @@ private class IntervalCompareator implements Comparator<Interval> {
 5) Any initializations that occur at the point of field definition are executed.
 6) Constructors are executed. It might actually involve a fair amount of activity, expecially when inheritance is involved.
 12. We can also use static keyword and {} to cover block of code, which means these code is executed only once: the first time you make an object of that class or the first time you access a static member of that class.
-
+13. Igeneral you can use an enum as if it were another way to create a data type, and then just put the results to work. 
 
 
 
