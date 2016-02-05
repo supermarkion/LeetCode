@@ -1,0 +1,10 @@
+package AccessControl;
+
+/**
+ * Created by saima on 5/02/16.
+ */
+public class FullQualification {
+    public static void main(String[] args) {
+        java.util.ArrayList list = new java.util.ArrayList();
+    }
+}
