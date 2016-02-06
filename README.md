@@ -33,6 +33,9 @@ private class IntervalCompareator implements Comparator<Interval> {
 3) When inheritance is introduced, an inherited class can access a protected member as well as a public member. It can access package-access members only if the two classes are in the same package.
 4) Provide "accessor/mutator" methods (also known as "get/set" methods) that read and change the value. This is the most civilized approach in terms of OOP.
 15. Java's final keyword has slightly different meaning depending on the context, but in general it says "this cannot be changed". You might want to prevent changes for two reasons: design or efficiency. Because these two reasons are quite different, it's possible to misues the final keyword. It can be used in three part: for data, methods and classes.
+16. There are two reaons for final methods. THe first is to put a lock on the method to prevent any inheriting class from change its meaning. This is done for design reasons when you want to make sure that a method's behavior is retained during inheritance and cannot be overridden. The second reason for final methods is effeciency. If you made a method final, you allowed the compile to turn any calls to that method into inline calls. But now, its no longer necessary.
+
+
 
 
 
