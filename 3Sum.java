@@ -1,0 +1,54 @@
+/*
+    Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique 
+    triplets in the array which gives the sum of zero.
+	    Elements in a triplet (a,b,c) must be in non-descending order. (ie, a ≤ b ≤ c)
+		The solution set must not contain duplicate triplets.
+    
+    Link: https://leetcode.com/problems/3sum/
+
+    Example: For example, given array S = {-1 0 1 2 -1 -4}, A solution set is: (-1, 0, 1), (-1, -1, 2)
+
+    Solution: None
+    
+    Source: None
+*/
+
+public class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> resultList = new ArrayList<List<Integer>>();
+        if (nums == null || nums.length < 3) {
+            return resultList;
+        }
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            int j = i + 1;
+            int k = nums.length - 1;
+            while (j < k) {
+                int ans = nums[i] + nums[j] + nums[k];
+                if (ans == 0) {
+                    ArrayList<Integer> temp = new ArrayList<Integer>();
+                    temp.add(nums[i]);
+                    temp.add(nums[j]);
+                    temp.add(nums[k]);
+                    resultList.add(temp);
+                    j++;
+                    while (j < nums.length && nums[j] == nums[j - 1]) {
+                        j++;
+                    }
+                    k--;
+                    while (k >= 0 && nums[k] == nums[k + 1]) {
+                        k--;
+                    }
+                } else if (ans > 0) {
+                    k--;
+                } else {
+                    j++;
+                }
+            }
+        }
+        return resultList;
+    }
+}
