@@ -32,7 +32,7 @@ private class IntervalCompareator implements Comparator<Interval> {
 2) Given the member package access by elaving off any access specifier, and put the other classes in the same package. Then the other classes in that package can access the member.
 3) When inheritance is introduced, an inherited class can access a protected member as well as a public member. It can access package-access members only if the two classes are in the same package.
 4) Provide "accessor/mutator" methods (also known as "get/set" methods) that read and change the value. This is the most civilized approach in terms of OOP.
-
+15. Java's final keyword has slightly different meaning depending on the context, but in general it says "this cannot be changed". You might want to prevent changes for two reasons: design or efficiency. Because these two reasons are quite different, it's possible to misues the final keyword. It can be used in three part: for data, methods and classes.
 
 
 
