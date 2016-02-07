@@ -48,17 +48,15 @@ for example:
 
 16. There are two reaons for final methods. THe first is to put a lock on the method to prevent any inheriting class from change its meaning. This is done for design reasons when you want to make sure that a method's behavior is retained during inheritance and cannot be overridden. The second reason for final methods is effeciency. If you made a method final, you allowed the compile to turn any calls to that method into inline calls. But now, its no longer necessary.
 
-17. We can use 
+17. We can use: private static boolean[] toBinary(int number, int base) {
+		    final boolean[] ret = new boolean[base];
+		    for (int i = 0; i < base; i++) {
+		        ret[base - 1 - i] = (1 << i & number) != 0;
+		    }
+		    return ret;
+		}
 
-private static boolean[] toBinary(int number, int base) {
-    final boolean[] ret = new boolean[base];
-    for (int i = 0; i < base; i++) {
-        ret[base - 1 - i] = (1 << i & number) != 0;
-    }
-    return ret;
-}
-
-to get result of a int number bit version.
+		to get result of a int number bit version.
 
 
 
