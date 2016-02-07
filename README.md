@@ -3,13 +3,14 @@ Save Codes on LeetCode questions implmement
 
 1. When we want to sort list with objects, we use a class to define comparator.
 for example:
+'''
 	Collections.sort(intervals, new IntervalComparator());
 	private class IntervalCompareator implements Comparator<Interval> {
 		public int compare(Interval a, Interval b) {
 		    return a.start - b.start;
 	    }
 	}
-
+'''
 2. The Text Justification.java is a template on construct text file with special format.
 
 3. From now on, I should use Thinking in Java to practice my OOP defintions.
@@ -49,6 +50,7 @@ for example:
 16. There are two reaons for final methods. THe first is to put a lock on the method to prevent any inheriting class from change its meaning. This is done for design reasons when you want to make sure that a method's behavior is retained during inheritance and cannot be overridden. The second reason for final methods is effeciency. If you made a method final, you allowed the compile to turn any calls to that method into inline calls. But now, its no longer necessary.
 
 17. We can use to get result of a int number bit version.
+'''
 	private static boolean[] toBinary(int number, int base) {
 		final boolean[] ret = new boolean[base];
 		for (int i = 0; i < base; i++) {
@@ -57,7 +59,7 @@ for example:
 		return ret;
 	}
 		
-
+'''
 
 
 
