@@ -62,6 +62,7 @@ for example:
 		
 ```
 
+18. It's helpful to create **abstract** classes and methods because they make the abstractness of a class explicit, and tell both the user and the compiler how it was intened to be used. Abstract classes are also uesful refactoring tolls, since they allow you to easily move common methods up the inheritance hierarchy.
 
 
 
