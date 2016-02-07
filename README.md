@@ -29,7 +29,7 @@ for example:
 10. For the static key word, there is no this for that particular method, you cannot call a non-static methods from insdier static methods (although the reverse is possible), and you can call a static method for the class itself, without any object. It is kind of Global Method, eventhough Java is not allow global method. (when we use static, there is no need to pass message to object, and it can say there is no this in method)
 
 11. To summarize the process of creating an object, consider of a class called Dog:
-	* Even though it doesn't explicitly use the static keyword, the constructor is actually a static method. So the first time an ojbect of type Dog is created, or the first time a static method or static field of class DOg is accessed, the Java interpreter must locate Dog.class, which it does by searching through the classpath.
+	* Even though it doesn't explicitly use the static keyword, the constructor is actually a static method. So the first time an ojbect of type Dog is created, or the first time a static method or static field of class Dog is accessed, the Java interpreter must locate Dog.class, which it does by searching through the classpath.
 	* As Dog.class is loaded (creating a Class object, which you'ill learn about later), all of its static initializers are run. Thus, static initialization takes place only once, as the Class object is loaded for the first time.
 	* When you create a new Dog(), the construction process for a Dog object first allocates enough storage for a Dog object on the heap.
 	* This storage is wiped to zero, automatically setting all the primitives in that Dog object to their default values (zero for numbers and the equivalent boolean and char) and the references to null.
