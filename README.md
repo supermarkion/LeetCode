@@ -65,10 +65,36 @@ for example:
 18. It's helpful to create **abstract** classes and methods because they make the abstractness of a class explicit, and tell both the user and the compiler how it was intened to be used. Abstract classes are also uesful refactoring tolls, since they allow you to easily move common methods up the inheritance hierarchy.
 
 
+19. In the problem on **Reorder List**, we can use three templates to finish this task.
+```
+		// find middle
+        ListNode slow = head, fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode rHead = slow.next;
+        slow.next = null;
 
+        // reverse ListNode on the right side
+        ListNode prev = null;
+        while (rHead != null) {
+            ListNode temp = rHead.next;
+            rHead.next = prev;
+            prev = rHead;
+            rHead = temp;
+        }
 
-
-
-
+        // merge two list
+        rHead = prev;
+        ListNode lHead = head;
+        while (lHead != null && rHead != null) {
+            ListNode temp1 = lHead.next;
+            lHead.next = rHead;
+            rHead = rHead.next;
+            lHead.next.next = temp1;
+            lHead = temp1;
+        }
+```
 
 
