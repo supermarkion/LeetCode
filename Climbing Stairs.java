@@ -3,6 +3,7 @@
     In how many distinct ways can you climb to the top?
 
     Link: https://leetcode.com/problems/climbing-stairs/
+    
     Example: None
 
     Solution: None
