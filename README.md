@@ -98,4 +98,6 @@ for example:
 ```
 + The pdf file [Codility][1] saved the 50 questions with solutions on Codility Website, which had been finished by my Python Code.
 
++ Collection is the root interface taht describes what is common for all sequence containers. It might be thought of as an incidental interface.
+
 [1]: https://github.com/supermarkion/LeetCode/blob/master/Codilitiy.pdf
