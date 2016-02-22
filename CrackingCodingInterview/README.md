@@ -1,5 +1,7 @@
 # Technical Prepartion
 
+All java prorgam write to test whiteboard coding ability.
+
 * Data structures:
 	+ Linked Lists (solved)
 	+ Binary Trees (solved)
