@@ -38,3 +38,11 @@ All java prorgam write to test whiteboard coding ability.
 	+ Simplify & Generalize: Change a constraint (data type, size, etc) to simplify the problem. Then try to solve it. Once you have an algorithm for the “simplified” problem, generalize the problem again.
 	+ Base Cae and Build: Solve the algorithm first for a base case (e.g., just one element). Then, try to solve it for elements one and two, assuming that you have the answer for element one. Then, try to solve it for elements one, two and three, assuming that you have the answer to elements one and two.
 	+ Data Structure Brainstrom: This is hacky, but it often works. Simply run through a list of data structures and try to apply each one.
+
+# Object Oriented Design
+
+* Real world objects are handled very similarly to software object oriented design. Suppose you are designing an object oriented design for a parking lot.
+	+ What are your goals? For example: figure out if a parking spot is taken, figure out how many cars of each type are in the parking lot, look up handicapped spots, etc.
+	+ Now, think about the core objects (Car, ParkingSpot, ParkingLot, ParkingMeter, etc. Car has different subclasses, and ParkingSpot is also subclassed for handicapped spot).
+	+ Have we missed anything? How will we represent parking restrictions based on time or payment? Perhaps, we’ll add a class called Permission which handles different payment systems. Permission will be sub-classed into classes PaidPermission (fee to park) and FreeParking (open parking). ParkingLot will have a method called GetPermission which will return the current Permission object based on the time.
+	+ How will we know whether or not a car is in a spot? Think about how to represent the data so that the methods are most efficient.
