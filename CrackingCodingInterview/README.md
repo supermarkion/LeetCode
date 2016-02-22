@@ -46,3 +46,16 @@ All java prorgam write to test whiteboard coding ability.
 	+ Now, think about the core objects (Car, ParkingSpot, ParkingLot, ParkingMeter, etc. Car has different subclasses, and ParkingSpot is also subclassed for handicapped spot).
 	+ Have we missed anything? How will we represent parking restrictions based on time or payment? Perhaps, we’ll add a class called Permission which handles different payment systems. Permission will be sub-classed into classes PaidPermission (fee to park) and FreeParking (open parking). ParkingLot will have a method called GetPermission which will return the current Permission object based on the time.
 	+ How will we know whether or not a car is in a spot? Think about how to represent the data so that the methods are most efficient.
+
+# System Design and Memory Limits
+
+There are some general appraoches to deal with it, image we are designing a hypothetical system for millions of itmes:
+
+* How would you solve it for a small number of items? Develop an algorithm for this case, which is often pretty straight-forward.
+* What happens when you try to implement that algorithm with millions of items? It’s likely that you have run out of space on the computer. So, divide up the files across many computers.
+	+ How do you divide up data across many machines? That is, do the first 100 items appear on the same computer? Or all items with the same hash value mod 100?
+	+ About how many computers will you need? To estimate this, ask how big each item is and take a guess at how much space a typical computer has.
+* Now, fix the problems that occur when you are using many computers. Make sure to answer the following questions.
+	+ How does one machine know which machine it should access to look up data?
+	+ Can data get out of sync across computers? How do you handle that?
+	+ How can you minimize expensive reads across computers?
