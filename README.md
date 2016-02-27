@@ -3,7 +3,7 @@ Save Codes on LeetCode questions implmement
 
 + When we want to sort list with objects, we use a class to define comparator.
 for example:
-```
+```java
 	Collections.sort(intervals, new IntervalComparator());
 	private class IntervalCompareator implements Comparator<Interval> {
 		public int compare(Interval a, Interval b) {
@@ -51,7 +51,7 @@ for example:
 + There are two reaons for final methods. THe first is to put a lock on the method to prevent any inheriting class from change its meaning. This is done for design reasons when you want to make sure that a method's behavior is retained during inheritance and cannot be overridden. The second reason for final methods is effeciency. If you made a method final, you allowed the compile to turn any calls to that method into inline calls. But now, its no longer necessary.
 
 + We can use to get result of a int number bit version.
-```
+```java
 	private static boolean[] toBinary(int number, int base) {
 		final boolean[] ret = new boolean[base];
 		for (int i = 0; i < base; i++) {
@@ -66,35 +66,35 @@ for example:
 
 
 + In the problem on **Reorder List**, we can use three templates to finish this task.
-```
-		// find middle
-        ListNode slow = head, fast = head.next;
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        ListNode rHead = slow.next;
-        slow.next = null;
+```java
+	// find middle
+	ListNode slow = head, fast = head.next;
+	while (fast != null && fast.next != null) {
+		slow = slow.next;
+		fast = fast.next.next;
+	}
+	ListNode rHead = slow.next;
+ 	slow.next = null;
 
-        // reverse ListNode on the right side
-        ListNode prev = null;
-        while (rHead != null) {
-            ListNode temp = rHead.next;
-            rHead.next = prev;
-            prev = rHead;
-            rHead = temp;
-        }
+	// reverse ListNode on the right side
+	ListNode prev = null;
+	while (rHead != null) {
+    	ListNode temp = rHead.next;
+    	rHead.next = prev;
+    	prev = rHead;
+    	rHead = temp;
+    }
 
-        // merge two list
-        rHead = prev;
-        ListNode lHead = head;
-        while (lHead != null && rHead != null) {
-            ListNode temp1 = lHead.next;
-            lHead.next = rHead;
-            rHead = rHead.next;
-            lHead.next.next = temp1;
-            lHead = temp1;
-        }
+    // merge two list
+    rHead = prev;
+    ListNode lHead = head;
+    while (lHead != null && rHead != null) {
+        ListNode temp1 = lHead.next;
+        lHead.next = rHead;
+        rHead = rHead.next;
+        lHead.next.next = temp1;
+        lHead = temp1;
+    }
 ```
 + The pdf file [Codility][1] saved the 50 questions with solutions on Codility Website, which had been finished by my Python Code.
 
