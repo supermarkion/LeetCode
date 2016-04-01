@@ -13,6 +13,19 @@
 	
     Solution: None
 
-    Source: None
-    
+    Source: https://leetcode.com/discuss/94956/2ms-easy-to-understand-java-solution
+
 */
+
+public int depthSum(List<NestedInteger> nestedList) {
+    return helper(nestedList, 1);
+}
+
+private int helper(List<NestedInteger> list, int depth)
+{
+    int ret = 0;
+    for (NestedInteger e: list) {
+        ret += e.isInteger() ? e.getInteger() * depth : helper(e.getList(), depth + 1);
+    }
+    return ret;
+}
