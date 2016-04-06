@@ -25,14 +25,14 @@ public class NestedIterator implements Iterator<Integer> {
     }
 
     private void doListFlat(List<NestedInteger> NIL){
-        if(NIL == null){
+        if (NIL == null){
             return;
         }
-        for(NestedInteger NI : NIL){
-            if(NI.isInteger()){
+        for (NestedInteger NI : NIL){
+            if (NI.isInteger()){
                 flattenedList.add(NI.getInteger());
             }
-            else{
+            else {
                 doListFlat(NI.getList());
             }
         }
