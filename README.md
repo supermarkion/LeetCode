@@ -100,4 +100,6 @@ for example:
 
 + Collection is the root interface taht describes what is common for all sequence containers. It might be thought of as an incidental interface.
 
++ We can use JAVA HashMap getOrDefault(Object key, V defaultValue) to return the value to which the specified key is mapped, or defaultValue if this map contains no mapping for the key.
+
 [1]: https://github.com/supermarkion/LeetCode/blob/master/Codilitiy.pdf
