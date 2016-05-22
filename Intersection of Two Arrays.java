@@ -8,7 +8,7 @@
     
     Solution: None
 
-    Source: https://leetcode.com/problems/intersection-of-two-arrays/
+    Source: http://blog.csdn.net/foreverling/article/details/51451919
 */
 
 public class Solution {
