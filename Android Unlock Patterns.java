@@ -34,3 +34,41 @@
 
     Source: http://www.cnblogs.com/grandyang/p/5541012.html
 */
+
+public int numberOfPatterns(int m, int n) {
+    boolean[][] board = new boolean[3][3];
+    int result = 0;
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            board[i][j] = true;
+            result += helper(board, i, j, m, n, 1);
+            board[i][j] = false;
+        }
+    }
+
+    return result;
+}
+
+private int helper(boolean[][] board, int i, int j, int m, int n, int count) {
+    if (count > n) return 0;
+
+    int result = (count >= m) ? 1 : 0;
+
+    for (int x = 0; x < 3; x++) {
+        for (int y = 0; y < 3; y++) {
+            if (board[x][y] ||
+                (x == i && Math.abs(y - j) == 2 && !board[x][1]) ||
+                (y == j && Math.abs(x - i) == 2 && !board[1][y]) ||
+                (Math.abs(x - i) == 2 && Math.abs(y - j) == 2 && !board[1][1])) {
+                continue;
+            }
+
+            board[x][y] = true;
+            result += helper(board, x, y, m, n, count + 1);
+            board[x][y] = false;
+        }
+    }
+
+    return result;
+}
