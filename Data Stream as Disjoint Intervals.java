@@ -13,5 +13,5 @@
     
     Solution: None
 
-    Source: None
+    Source: http://bookshadow.com/weblog/2016/05/31/leetcode-data-stream-as-disjoint-intervals/
 */
