@@ -22,8 +22,10 @@ public class Solution {
         int availableDigits = 9;
         int temp = 1;
     
-        for (int i=0; i<n; i++) {
-            if (i>1) availableDigits -= 1;
+        for (int i = 0; i < n; i++) {
+            if (i > 1) {
+            	availableDigits -= 1;	
+            } 
             temp *= availableDigits;
             result += temp;
         }
