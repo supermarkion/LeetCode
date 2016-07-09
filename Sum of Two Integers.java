@@ -14,7 +14,7 @@
 public class Solution {
     public int getSum(int a, int b) {
         int carry  = 0;
-        int curBitOfA,curBitOfB,curBit;
+        int curBitOfA, curBitOfB, curBit;
         int res = 0;
         for (int i = 0; i < 32; i++) {
             curBitOfA = (a >> i) & 1;
