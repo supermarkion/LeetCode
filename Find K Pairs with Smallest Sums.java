@@ -32,5 +32,35 @@
     
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/50716/java-solution-easy-to-understand
 */
+
+public class Solution {
+    public List<int[]> kSmallestPairs(int[] nums1, int[] nums2, int k) {
+        
+        if (nums1 == null || nums2 == null) {
+            return null;
+        }
+            
+        int n = nums1.length;
+        int m = nums2.length;
+            
+        List<int[]> ret = new LinkedList<>();
+        
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                ret.add(new int[]{nums1[i], nums2[j]});
+            }
+        }
+        
+        //Java 8
+        Collections.sort(ret, (int[] n1, int[] n2) -> (n1[0] + n1[1]) - (n2[0] + n2[1]));
+        
+        if (ret.size() < k) {
+            return ret;
+        }
+            
+            
+        return ret.subList(0, k);
+    }
+}
