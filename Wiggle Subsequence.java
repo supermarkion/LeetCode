@@ -27,5 +27,34 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/52001/java-easy-solution
 */
+
+public class Solution {
+    public int wiggleMaxLength(int[] nums) {
+
+        if (nums.length < 2) {
+        	return nums.length;
+        }
+    
+        int total = nums.length;
+        boolean positive = false;
+        for (int i = 0; i < nums.length - 1; i++) {
+            int cur = nums[i];
+            int next = nums[i + 1];
+            if (cur == next) {
+                total--;
+                continue;
+            }
+            if (i == 0) {
+                positive = next - cur > 0;
+                continue;
+            }
+            if ((next - cur > 0 && positive) || (next - cur < 0 && ! positive)) {
+                total--;
+            }
+            positive = next - cur > 0;
+        }
+        return total;
+    }
+}
