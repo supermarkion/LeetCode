@@ -12,5 +12,21 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/56055/simpe-java-solution
 */
+
+public class Solution {
+	
+    public int firstUniqChar(String s) {
+        int[] cache = new int[26];
+        for (char c : s.toCharArray()) {
+        	cache[c - 'a']++;
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (cache[s.charAt(i) - 'a'] == 1) {
+            	return i;
+            }
+        }
+        return -1;
+    }
+}
