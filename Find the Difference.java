@@ -18,5 +18,21 @@
 		Explanation:
 		'e' is the letter that was added.
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/56563/java-solution-using-list
 */
+
+public class Solution {
+    public char findTheDifference(String s, String t) {
+        List<Character> ls = new ArrayList<>();
+        for (int i = 0; i < t.length(); i++){
+            ls.add(t.charAt(i));
+        }
+
+        Character c;
+        for (int i = 0; i < s.length(); i++){
+            c = s.charAt(i);
+            ls.remove(c);
+        }
+        return ls.get(0);
+    }
+}
