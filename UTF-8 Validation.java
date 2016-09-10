@@ -32,5 +32,76 @@
 		The next byte is a continuation byte which starts with 10 and that's correct.
 		But the second continuation byte does not start with 10, so it is invalid.
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/57787/my-java-solution
 */
+
+public class Solution {
+    public boolean validUtf8(int[] data) 
+    {
+        for (int i = 0; i < data.length; ++i)
+        {
+            String s = transfer(data[i]);
+            if (s.charAt(0) == '0')
+           	{
+           		continue;
+            }
+            else
+            {
+                int count = 0;
+                while (s.charAt(count) =='1')
+                {
+                    count++;
+                    if (count > 4)
+                    {
+                    	return false;
+                    }
+                }
+                if (count == 1)
+                {
+                	return false;
+                }
+                count--;
+                int j = i + count;
+                while (count > 0)
+                {
+                    if (i + count >= data.length)
+                    {
+                    	return false;
+                    }
+                    String tmp = transfer(data[i + count]);
+                    if (tmp.charAt(0) == '1' && tmp.charAt(1) == '0')
+                    {
+                        count--;
+                        continue;
+                    }
+                    else
+                    {
+                    	return false;
+                    }
+                }
+                i = j;
+                
+            }
+        }
+        return true;
+    }
+    public String transfer(int num)
+    {
+        String res = "";
+        int i = 1;
+        int count = 8;
+        while (count --> 0)
+        {
+            if ((num&i) == 0)
+            {
+            	res = '0' + res; 
+            }
+            else 
+            {
+            	res = '1' + res;
+            }
+            i = i<< 1;
+        }
+        return res;
+    }
+}
