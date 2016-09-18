@@ -27,5 +27,24 @@
 			    
 	Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/59081/easy-and-straight-forward-java-solution
 */
+
+public int integerReplacement(int n) {
+	if (n == Integer.MAX_VALUE || n == Integer.MIN_VALUE) {
+		return 32;
+	}
+    return helper(n, 0);
+}
+
+private int helper(int n , int count) {
+	if (n == 1) {
+		return count;
+	} if (n % 2 == 0) {
+		count = helper(n / 2, count + 1);
+	} else {
+		count = Math.min(helper(n + 1, count + 1), 
+							helper(n - 1, count + 1));
+	}
+	return count;
+}
