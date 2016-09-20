@@ -33,5 +33,32 @@
 			    
 	Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/59423/simple-easy-to-understand-java-solution
 */
+
+public class Solution {
+    public static boolean canCross(int[] stones) {
+        Map<Integer, Set<Integer>> stoneMap = new HashMap<>();
+        for (int i = 1; i < stones.length; i++) {
+            stoneMap.put(stones[i], new HashSet<Integer>());
+        }
+        if (stones[0] + 1 == stones[1]) {
+            stoneMap.get(stones[1]).add(1);
+        }
+        for (int i = 1; i < stones.length; i++) {
+            int eachStone = stones[i];
+            for (Integer K : stoneMap.get(eachStone)) {
+                if (K != 1 &&  stoneMap.containsKey(eachStone + K - 1)) {
+                    stoneMap.get(eachStone + K - 1).add(K - 1);
+                }
+                if (stoneMap.containsKey(eachStone + K)) {
+                    stoneMap.get(eachStone + K).add(K);
+                }
+                if (stoneMap.containsKey(eachStone + K + 1)) {
+                    stoneMap.get(eachStone + K + 1).add(K + 1);
+                }
+            }
+        }
+        return stoneMap.get(stones[stones.length - 1]).size() >= 1;
+    }
+}
