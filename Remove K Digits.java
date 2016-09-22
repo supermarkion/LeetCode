@@ -24,5 +24,34 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/59579/my-java-solution-with-stack
 */
+
+public class Solution {
+    public String removeKdigits(String num, int k) {
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < num.length(); i++) {
+            while (!stack.empty() && stack.peek() > num.charAt(i) && k > 0) {
+                stack.pop();
+                k--;
+            } // remove front digits larger than current digit.
+            if (i < num.length() - 1 && num.charAt(i) > num.charAt(i + 1) && k > 0) {
+                k--; // if current digit larger than next digit, remove
+            } else {
+                stack.push(num.charAt(i));
+            }
+        }
+        for (int i = 0; i < k; i++) {
+        	stack.pop();
+        }
+        String ans = "";
+        while (!stack.empty()) {
+            ans = stack.pop() + ans;
+        }
+        int index = 0;
+        while (index < ans.length() && ans.charAt(index) == '0') {
+        	index++;
+        }
+        return index == ans.length() ? "0" : ans.substring(index);
+    }
+}
