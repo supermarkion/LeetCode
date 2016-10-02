@@ -26,5 +26,19 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/61049/java-solution-easy-to-understand-solution-with-comments
 */
+
+public String toHex(int num) {
+    if (num == 0) {
+        return "0";
+    } 
+    String temp = "";
+
+    while (num != 0) {
+        int rem = (num % 16) & 15;   // compares last four binary digits of the num with F
+        temp = (rem > 9 ? (char)('a' - 10 + rem) + "" : rem + "") + temp; // if remainder is 10, 11 and so on, converts it to 'a' , 'b' and so on..
+        num = num >>> 4; // bitwise unsigned right shift by four binary digits
+    }
+    return temp;
+}
