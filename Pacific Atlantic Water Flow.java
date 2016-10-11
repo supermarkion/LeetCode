@@ -33,5 +33,57 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/62694/java-clean-simple-dfs-solution
 */
+
+public class Solution {
+    public List<int[]> pacificAtlantic(int[][] matrix) {
+        
+        List<int[]> result = new ArrayList<int[]>();
+        if (matrix == null || matrix.length == 0 || matrix[0] == null ) {
+          return result;
+        }
+            
+        int row = matrix.length;
+        int col = matrix[0].length;
+        
+        Set<Integer> pacific = new HashSet<Integer>();
+        Set<Integer> atlantic = new HashSet<Integer>();
+        
+        for (int i = 0; i < col; ++i) {
+            DFSHelper(i, pacific, matrix);
+            DFSHelper((row - 1) * matrix[0].length + i, atlantic, matrix);
+        }
+        for (int i = 0; i < row; ++i) {
+            DFSHelper(i * matrix[0].length, pacific, matrix);
+            DFSHelper(i * matrix[0].length + col - 1, atlantic, matrix);
+        }    
+        for (int pos : pacific) {
+            if (atlantic.contains(pos)) {
+                int i = pos / matrix[0].length;
+                int j = pos % matrix[0].length;
+                int[] tmpResult = {i, j};
+                result.add(tmpResult);
+            }
+        }
+        return result;
+    }
+    
+    public void DFSHelper(int pos, Set<Integer> result, int[][] matrix) {
+        
+        if (result.contains(pos)) {
+          return;
+        }
+        int i = pos / matrix[0].length;
+        int j = pos % matrix[0].length;
+        result.add(pos);
+        int[][] directions = {{0 , -1}, {0, 1}, {1, 0}, {-1, 0}};
+        for (int[] direction: directions) {
+            int di = i + direction[0];
+            int dj = j + direction[1];
+            if (di >= 0 && di < matrix.length && dj >= 0 && dj < matrix[0].length && matrix[di][dj] >= matrix[i][j]) {
+                DFSHelper(di * matrix[0].length + dj, result, matrix);
+            }
+        }
+    }  
+}
