@@ -13,5 +13,33 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/62977/java-solution-o-n-running-time-o-n-memory-24ms
 */
+
+public class Solution {
+    public String addStrings(String num1, String num2) {
+    
+    int n = num1.length() - 1;
+    int m = num2.length() - 1;
+
+    final StringBuilder builder = new StringBuilder();
+
+    int carry = 0;
+    while (n >= 0 || m >= 0) {
+        final int x = n >= 0 ? num1.charAt(n--) - '0' : 0;
+        final int y = m >= 0 ? num2.charAt(m--) - '0' : 0;
+        final int z = x + y + carry;
+        if (z > 9) {
+            builder.append(z - 10);
+            carry = 1;
+        } else {
+            builder.append(z);
+            carry = 0;
+        }
+    }
+    if (carry > 0) {
+        builder.append(carry);
+    }
+        return builder.reverse().toString();
+    }
+}
