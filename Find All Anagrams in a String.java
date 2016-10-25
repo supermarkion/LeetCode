@@ -34,5 +34,39 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/64609/java-16ms-solution
 */
+
+public class Solution {
+    public static List<Integer> findAnagrams(String s, String p) {
+        int[] log = new int[26];
+        for (char ch : p.toCharArray()) {
+            log[ch - 'a']++;
+        }
+        List<Integer> res = new ArrayList<>();
+        char[] ss = s.toCharArray();
+        int i = 0,j = 0;
+        int[] log_copy = Arrays.copyOf(log, 26);
+        while (i <= ss.length - p.length()) {
+            boolean flag = true;
+            while (j < i + p.length()) {
+                int index = ss[j] - 'a';
+                log_copy[index]--;
+                if (log_copy[index] < 0) {
+                    flag = false;
+                    i = s.indexOf(ss[j], i) + 1;
+                    log_copy = Arrays.copyOf(log, 26);
+                    j = i;
+                    break;
+                }
+                j++;
+            }
+            if (flag) {
+                res.add(i);
+                log_copy[ss[i] - 'a']++;
+                i++;
+            }
+        }
+        return res;
+    }
+}
