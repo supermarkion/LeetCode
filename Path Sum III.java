@@ -28,5 +28,42 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/65261/19-ms-java-solution-with-dfs-prefixsum-time-o-n-space-o-depth-of-tree
 */
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public int pathSum(TreeNode root, int sum) {
+    Map<Integer, Integer> prefixSum = new HashMap<>();
+    prefixSum.put(0,1);
+    return dfs(root, sum, 0, prefixSum);
+    }
+  private int dfs(TreeNode root, int sum, int curSum, Map<Integer, Integer> prefixSum) {
+    if (root == null) {
+      return 0;
+    }
+    curSum += root.val;
+    int result = 0;
+    if (prefixSum.containsKey(curSum - sum)) {
+      result = prefixSum.get(curSum - sum);
+    }
+    int count = prefixSum.getOrDefault(curSum, 0);
+    prefixSum.put(curSum, count + 1);
+    result += dfs(root.left, sum, curSum, prefixSum);
+    result += dfs(root.right, sum, curSum, prefixSum);
+    if (count == 0) {
+        prefixSum.remove(curSum);
+    } else {
+        prefixSum.put(curSum, count);
+    }
+    return result;
+  }
+}
