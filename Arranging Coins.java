@@ -29,5 +29,12 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/65879/easy-to-understand-o-1-java
 */
+
+public class Solution {
+    public int arrangeCoins(int n) {
+        int x =(int) Math.sqrt((long)2 * n);
+        return x * (x + 1) <= 2 * n ? x : x - 1;
+    }
+}
