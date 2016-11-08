@@ -18,5 +18,19 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/66812/simple-java-o-n-solution-using-recursion
 */
+
+public class Solution {
+    public int minMoves(int[] nums) {
+        if (nums.length <= 1) {
+            return 0;
+        }
+        Arrays.sort(nums);
+        return helper(nums, 1, nums[0]);
+    }
+    
+    public int helper(int[] nums, int i, int min) {
+        return (i >= nums.length) ? 0 : nums[i] - min + helper(nums, ++i, min);
+    }
+}
