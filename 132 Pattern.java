@@ -25,5 +25,45 @@
             
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/68662/java-solution-20ms
 */
+
+public class Solution {
+    public boolean find132pattern(int[] nums) {
+        ArrayList<Integer> table = new ArrayList<Integer>();
+        int numsS = nums.length;
+        if (numsS < 3) {
+            return false;
+        }
+        
+        int min = nums[0];
+        
+        for (int i = 1; i < numsS; i++) {
+            if (nums[i] <= min){
+                min = nums[i];
+            } else {  
+                int j = table.size() - 1;
+                while (j > 0){
+                    if (nums[i] <= table.get(j)) {
+                        table.add(nums[i]);
+                        table.add(min);
+                        break;
+                    } else {
+                        if (nums[i] < table.get(j - 1)) {
+                            return true;
+                        } else {
+                            table.remove(j);
+                            table.remove(j - 1);
+                        }
+                    }
+                    j = j - 2;
+                }
+                if (table.size() == 0) {
+                    table.add(nums[i]);
+                    table.add(min);
+                }
+            }
+        }
+        return false;
+    }
+}
