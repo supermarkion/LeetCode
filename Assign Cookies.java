@@ -28,5 +28,24 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/68331/java-solution
 */
+
+public class Solution {
+    public int findContentChildren(int[] g, int[] s) {
+        int result = 0;
+         Arrays.sort(g);
+         Arrays.sort(s);
+         int i = 0,j = 0;
+         while (i < g.length && j < s.length) {
+        	 if (s[j] >= g[i]) {
+        		 i++;
+        		 j++;
+        		 result++;
+        	 } else {
+        		 j++;
+        	 }
+         }
+         return result;
+    }
+}
