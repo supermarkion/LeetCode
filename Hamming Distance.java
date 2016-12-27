@@ -21,5 +21,15 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/72089/java-3-line-solution
 */
+
+public class Solution {
+	public int hammingDistance(int x, int y) {
+	    int xor = x ^ y, count = 0;
+	    for (int i = 0; i < 32; i++) {
+	    	count += (xor >> i) & 1;
+	    }
+	    return count;
+	}    
+}
