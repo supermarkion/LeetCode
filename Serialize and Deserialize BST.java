@@ -43,8 +43,12 @@ public class Codec {
         while (!st.empty()) {
             root = st.pop();
             sb.append(root.val).append(SEP);
-            if (root.right != null) st.push(root.right);
-            if (root.left != null) st.push(root.left);
+            if (root.right != null) {
+            	st.push(root.right);
+            }
+            if (root.left != null) {
+            	st.push(root.left);
+            }
         }
         return sb.toString();
     }
@@ -52,7 +56,9 @@ public class Codec {
     // Decodes your encoded data to tree.
     // pre-order traversal
     public TreeNode deserialize(String data) {
-        if (data.equals(NULL)) return null;
+        if (data.equals(NULL)) {
+        	return null;
+        }
         String[] strs = data.split(SEP);
         Queue<Integer> q = new LinkedList<>();
         for (String e : strs) {
