@@ -31,5 +31,27 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/74355/java-3ms-solution-with-2-operations
 */
+
+public class Solution {
+    public List<String> fizzBuzz(int n) {
+        List<String> ret = new ArrayList<String>(n);
+        boolean r3, r5;
+        for (int i = 1; i <= n; i++) {
+            r3 = i % 3 == 0;
+            r5 = i % 5 == 0;
+            if (r3 && r5) {
+                ret.add("FizzBuzz");
+            } else if (r3) {
+                ret.add("Fizz");
+            } else if (r5) {
+                ret.add("Buzz");
+            }   
+            else {
+                ret.add(String.valueOf(i));
+            }      
+        }
+        return ret;
+    }
+}
