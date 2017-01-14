@@ -30,5 +30,38 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/75273/o-log-n-space-java/2
 */
+
+public class Solution {
+    public int magicalString(int n) {
+        Kolakoski kolakoski = new Kolakoski();
+        int ones = 0;
+        while (n-- > 0) {
+            if (kolakoski.next() == 1) {
+                ones++;
+            }
+        }
+        return ones;
+    }
+
+    private class Kolakoski {
+        private int[] queue = {1, 2, 2};
+        private int first = 0, last = 2;
+        private Kolakoski source;
+        int next() {
+            if (first > last) {
+                if (source == null) {
+                    source = new Kolakoski();
+                    source.next();
+                    source.next();
+                }
+                int output = queue[last % 3] ^ 3;
+                for (int k = source.next(); k > 0; k--) {
+                    queue[++last % 3] = output;
+                }
+            }
+            return queue[first++ % 3];
+        }
+    }
+}
