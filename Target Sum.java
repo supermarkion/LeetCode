@@ -23,5 +23,27 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/76265/18ms-java-solution/2
 */
+
+public class Solution {
+    public int findTargetSumWays(int[] nums, int S) {
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            nums[i] *= 2;
+        }
+        if (Math.abs(sum) < Math.abs(S)) {
+           return 0; 
+        }
+        int target = S + sum;
+        int[] dp = new int[target + 1];
+        dp[0] = 1;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = target; j >= 0; j--) {
+                if (j >= nums[i]) dp[j] += dp[j - nums[i]];
+            } 
+        }
+        return dp[target];
+    }
+}
