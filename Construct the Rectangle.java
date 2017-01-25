@@ -20,5 +20,27 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/76475/easy-to-understand-java-solution-beats-100
 */
+
+public class Solution {
+    public int[] constructRectangle(int area) {
+        int[] result = new int[2];
+        int minDiff = Integer.MAX_VALUE;
+        
+        for (int i = 1; Math.sqrt(area) - i >= 0; i++) {
+            if (area % i == 0) {
+                int j = area / i;
+                
+                // Update 
+                if ((j - i) < minDiff) {
+                    minDiff = j - i;
+                    result[1] = i;
+                    result[0] = j;
+                }
+            }
+        }
+        
+        return result;
+    }
+}
