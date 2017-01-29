@@ -27,5 +27,18 @@
 
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/76873/java-7-line-dp-solution
 */
+
+public class Solution {
+    public boolean PredictTheWinner(int[] nums) {
+        int[][] dp = new int[nums.length][nums.length];
+        for (int j = 0; j < nums.length; j++) {
+            dp[j][j] = nums[j];
+            for (int i = j - 1; i >= 0; i--) {
+                dp[i][j] = Math.max(nums[i] - dp[i+1][j], nums[j] - dp[i][j-1]);
+            }
+        }
+        return dp[0][nums.length-1] >= 0;
+    }
+}
