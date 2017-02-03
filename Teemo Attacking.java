@@ -31,3 +31,25 @@
 
     Source: None
 */
+
+public class Solution {
+    public int findPoisonedDuration(int[] timeSeries, int duration) {
+        int sum = 0;
+        for(int i = 0; i < timeSeries.length; i++) {
+            sum +helper(timeSeries, i, duration);
+        }
+        return sum;
+    }
+    
+    public int helper(int [] timeSeries, int start, int duration) {
+        if(start == timeSeries.length - 1) {
+            return duration;
+        }
+        if(timeSeries[start] + duration - 1 >= timeSeries[start + 1]) {
+            return timeSeries[start + 1] - timeSeries[start];
+        }
+        else {
+            return duration;
+        }
+    }
+}
