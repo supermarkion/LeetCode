@@ -17,5 +17,17 @@
 		
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/77688/java-straightforward-solution
 */
+
+public class Solution {
+    public int findComplement(int num) { 
+        int tmp = num;
+        int n = 1;
+        while (tmp != 0) {
+            tmp >>= 1;
+            n <<= 1;
+        }
+        return n-num-1;
+    }
+}
