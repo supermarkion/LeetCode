@@ -13,5 +13,17 @@
 				
     Solution: None
 
-    Source: None
+    Source: https://discuss.leetcode.com/topic/79670/java-8-solution
 */
+
+public class Solution {
+    public String[] findRelativeRanks(int[] nums) {
+		String[] RANKS = { "Gold Medal", "Silver Medal", "Bronze Medal" };
+		Map<Integer, String> map = new HashMap<Integer, String>();
+		Arrays.stream(nums).mapToObj(i -> new Integer(i)).sorted(Comparator.reverseOrder()).reduce(1, (i, v) -> {
+			map.put(v, i > 3 ? Integer.toString(i) : RANKS[i - 1]);
+			return i + 1;
+		});
+		return Arrays.stream(nums).mapToObj(n -> map.get(n)).toArray(String[]::new);
+	}
+}
